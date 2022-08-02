@@ -1,0 +1,16 @@
+@import "./mixins";
+@import "./_colors.scss";
+
+.game-scores{display: flex; align-items: center; gap:20px;
+    &__score{flex:1; border-radius: 15px; height: 72px; display: flex; flex-direction: column; justify-content: center; text-align: center; padding: 0 20px;
+        label{@include font(1.4, 17.64, 0.88, 500, $darkBlue); text-transform: uppercase;}
+        b{@include font(2.4, 30.24, 1.5, 700, $darkBlue);}
+        &.you{background-color: $green;}
+        &.ties{background-color: $grey;}
+        &.opponent{background-color: $orange;}    
+        @include mq(500){height: 64px;
+            b{@include font(2.0, 25.2, 1.25, 700, $darkBlue);}           
+            label{@include font(1.2, 15.12, 0.75, 500, $darkBlue);}
+        }
+    }   
+}

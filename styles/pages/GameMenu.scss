@@ -1,0 +1,52 @@
+@import "../_mixins.scss";
+@import "../_colors.scss";
+//import re-used css components here, or style unique items on the home page (if not using styled components)
+
+.game-menu{flex: 1;
+    img, svg{width: 32px;
+        &:last-child{width: 31.74px; transform: translateX(3px);}
+    }
+    &__header{display: flex; align-items: center; justify-content: center; gap:6px;
+       
+    }
+    &__marks{margin: 40px 0; padding: 24px 24px 29px; text-align: center; background-color: $darkBlue; box-shadow: inset 0px -8px 0px #10212A; border-radius: 15px; 
+        h1{@include font(1.6, 20.16, 1, 700); padding-left: 2px;}
+        .mark-choices{margin: 24px 0 18px; height: 72px; padding: 9px; background-color: $black; position: relative; display: flex; align-items: center; justify-content: center; border-radius: 10px;
+            &__choice{flex: 1; height: 100%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2; transition: background-color 0.2s ease-out; 
+                svg{
+                    path{fill: $grey; transition: fill 0.2s ease-in-out; will-change: fill; transition-delay: 0.1s;}
+                    &:last-child{transform: translateX(1px);}
+                }
+                &:hover{background-color: rgba(168, 191, 201, 0.05); border-radius: 10px;}
+            }           
+            &:after{content:""; position: absolute; top:9px; bottom:9px; width: calc(50% - 8px); background-color: $grey; border-radius: 10px; z-index: 1; transition: transform 0.3s ease-in-out; will-change: transform;}
+            &.o{
+                .mark-choices{
+                    &__choice{
+                        &.o{
+                            svg{
+                                path{fill:$black;}
+                            }
+                        }
+                    }
+                }
+                &:after{transform: translate3d(50%, 0, 0);}
+            }
+            &.x{
+                .mark-choices{
+                    &__choice{
+                        &.x{
+                            svg{
+                                path{fill:$black;}
+                            }
+                        }
+                    }
+                }
+                &:after{transform: translate3d(-50%, 0, 0);}
+            }            
+        }
+        label{@include font(1.4, 17.64, 0.88); padding-left: 4px; opacity: 0.5;}
+       
+    }
+    &__cta{display: flex; flex-direction: column; gap:20px; transform: translateY(1px);}
+}

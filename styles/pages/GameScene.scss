@@ -1,0 +1,10 @@
+@import "../_mixins.scss";
+@import "../_colors.scss";
+
+.game-scene{flex: 1; position: relative;
+    .opponent-message{pointer-events: none; @include font(1.6, 14, 1.25, 700); position: absolute; bottom: -42px; width: 100%; display: flex; justify-content: center; gap:2px; transform: translateY(3px); opacity: 0; transition: opacity 0.2s ease-out, transform 0.2s ease-out;   
+        img{align-self: flex-end;}
+        @include mq(360){font-size: 1.2rem; line-height: 11px; bottom:-28px;}
+        &.active{opacity: 1; transform: translateY(0);}
+    }   
+}

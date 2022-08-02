@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&display=swap');
+
+body{margin: 0; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; background-color: #1A2A33;}
+*{box-sizing: border-box;}
+body, html, input{font-family: 'Outfit', sans-serif;}
+html{font-size: 62.5%; overflow: hidden;}
+p, h1, h2, h3, h4, h5, h6{margin: 0;}
+a{text-decoration: none;}
+ul{margin: 0; padding: 0;
+  li{list-style: none;}
+}
+#app {-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;}
+main{
+  .container{max-width: 508px; margin: 0 auto; padding:0 24px; display: flex; justify-content: center; align-items: center; height: 100vh;}
+  img{display: block; max-width: 100%;}
+}

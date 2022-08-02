@@ -1,0 +1,46 @@
+@import "./mixins";
+@import "./_colors.scss";
+
+.game-board{display: grid; grid-template: repeat(3, 1fr) / repeat(3, 1fr); gap:20px; height: 460px; margin:20px 0 19px;
+    &__cell{background: $darkBlue; border-radius: 15px; display: flex; align-items: center; justify-content: center; box-shadow: inset 0px -8px 0px #10212A; max-height: 140px; transition: box-shadow 0.1s ease-out, transform 0.1s ease-out, max-height 0.1s ease-out;
+        svg{width: 64px; padding-bottom: 6px;}
+        &.empty{cursor: pointer; position: relative; overflow: hidden;
+            &:after{content:""; position: absolute; inset:0; bottom:0; background-size: 30%; background-repeat: no-repeat; background-position: center; background-color: $darkBlue; transition: background-size 0.2s ease-out, opacity 0.2s ease-out; border-radius: 15px; box-shadow: inset 0px -8px 0px #10212A; opacity: 0;} //background-position: center bottom 41px; 
+            &.preview-x{
+                &:after{background-image: url("../images/icons/icon-x-outline.svg"); background-size: 64px; opacity: 1;
+                    @include mq(520){background-size: 45px;}  
+                    @include mq(350){background-size: 33px;}  
+                }
+            }
+            &.preview-o{
+                &:after{background-image: url("../images/icons/icon-o-outline.svg"); background-size: 64px; opacity: 1;
+                    @include mq(520){background-size: 45px;}  
+                    @include mq(350){background-size: 33px;}  
+                }
+            }       
+        }  
+        &.active{pointer-events: none; cursor: default; box-shadow: inset 0px -4px 0px #10212a; 
+            &.x{background: url("../images/icons/icon-x.svg") no-repeat center rgba($darkBlue, 1);
+                @include mq(520){background-size: 45px; background-position:center;} 
+                @include mq(350){background-size: 33px;}   
+            }
+            &.o{background: url("../images/icons/icon-o.svg") no-repeat center rgba($darkBlue, 1);
+                @include mq(520){background-size: 45px; background-position:center;}  
+                @include mq(350){background-size: 33px;}  
+            }   
+        } 
+        &.match-3{pointer-events: none; cursor: default; transition-duration: 0s;
+            &.x{background: url("../images/icons/icon-x-black.svg") no-repeat center rgba($green, 1); box-shadow: inset 0px -4px 0px #118C87;
+                @include mq(520){background-size: 45px; background-position:center;}  
+                @include mq(350){background-size: 33px;}  
+            }
+            &.o{background: url("../images/icons/icon-o-black.svg") no-repeat center rgba($orange, 1); box-shadow: inset 0px -4px 0px #CC8B13;
+                @include mq(520){background-size: 45px;  background-position:center;}  
+                @include mq(350){background-size: 33px;}  
+            }
+        }   
+        &.active, &.match-3{transform: translateY(4px); max-height: 136px;}     
+    }
+    &.locked, &.game-inactive{pointer-events: none;}
+    @include mq(520){height: 87.5vw; margin: 64px 0 20px;}  
+}

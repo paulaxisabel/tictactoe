@@ -1,0 +1,49 @@
+@import "./mixins";
+@import "./_colors.scss";
+
+button{border:none; color: $black; cursor: pointer; transition: background-color 0.25s ease-out; width: 100%; transition: box-shadow 0.1s ease-out, transform 0.1s ease-out;
+    i{font-style: normal; transition: transform 0.1s ease-out; display: inline-block;}
+    &.orange{background: $orange; box-shadow: inset 0px -8px 0px #CC8B13;
+        &:hover{background: $lightOrange;}
+    }
+    &.green{background: $green; box-shadow: inset 0px -8px 0px #118C87; padding-left: 34px !important;
+        &:hover{background: $blue;}
+    }
+    &.grey{background: $grey; box-shadow: inset 0px -4px 0px #6B8997; 
+        &:hover{background: $white;}
+    }
+    &.large{height: 67px; padding: 0 30px 8px 30px; border-radius: 15px; @include font(2, 25.2, 1.25, 700, $black); 
+        @include mq(500){@include font(1.6, 20.16, 1, 700, $black);}
+    }
+    &.medium{height: 52px; padding: 0 16px 1px; border-radius: 10px; @include font(1.6, 20.16, 1, 700, $black); box-shadow: inset 0px -4px 0px #6B8997;  width: auto;
+        &.orange{box-shadow: inset 0px -4px 0px #CC8B13;}
+    }
+    &.icon{height: 52px; padding: 0px 16px; border-radius: 10px; width: auto;
+        i{position: relative; top:2px;}
+        img{padding-bottom: 2px;}
+        @include mq(440){height: 40px; padding: 0px 10px;
+            img{width: 15.38px; padding-bottom: 0;}
+        }
+    }
+   
+}
+
+a, p{
+    &:active{
+        button{          
+            &.large{transform: translateY(4px) scaleY(0.93);
+                i{transform: translateY(2px) scaleY(1.07) !important;}
+                &.orange{box-shadow: inset 0px -4px 0px #CC8B13;}
+                &.green{box-shadow: inset 0px -4px 0px #118C87;}
+                &.grey{ box-shadow: inset 0px -4px 0px #6B8997;}     
+            }   
+            &.medium{transform: translateY(2px) scaleY(0.98);
+                &.orange{box-shadow: inset 0px -2px 0px #CC8B13;}               
+                &.grey{ box-shadow: inset 0px -2px 0px #6B8997;}     
+            }   
+            &.icon{transform: translateY(2px) scaleY(0.98);                       
+                &.grey{ box-shadow: inset 0px -2px 0px #6B8997;}     
+            }               
+        }
+    }
+  }
